@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy – YOUR_APP_NAME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #050816;
+            --card: #020617;
+            --text-main: #f9fafb;
+            --text-soft: #9ca3af;
+            --accent: #3b82f6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo { font-weight: 700; font-size: 18px; }
+        nav a {
+            margin-left: 16px;
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+        nav a:hover { color: var(--text-main); }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 28px 20px 32px;
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        .meta {
+            font-size: 12px;
+            color: var(--text-soft);
+            margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 18px;
+            background: rgba(15,23,42,0.9);
+            border-radius: 14px;
+            padding: 14px 16px;
+            border: 1px solid rgba(31,41,55,0.9);
+        }
+        h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        p, li {
+            font-size: 14px;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+        ul { padding-left: 20px; margin-top: 4px; }
+        li + li { margin-top: 4px; }
+
+        footer {
+            border-top: 1px solid #111827;
+            margin-top: auto;
+            padding: 10px 20px 16px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+        footer .inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        footer a { color: var(--text-soft); }
+        footer a:hover { color: var(--text-main); }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">YOUR_APP_NAME</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 6 December 2025</p>
+
+    <section>
+        <h2>1. Overview</h2>
+        <p>
+            This Privacy Policy explains how YOUR_APP_NAME (“we”, “our”, or “the app”)
+            handles information when you use the application.
+        </p>
+        <p>
+            YOUR_APP_NAME is a desktop application that connects to TikTok and YouTube
+            using official OAuth flows to display analytics and statistics for your
+            own accounts.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Information We Collect</h2>
+        <p>
+            The app only collects information that you explicitly authorize through
+            TikTok and YouTube OAuth. Depending on the permissions you grant, this may include:
+        </p>
+        <ul>
+            <li>Basic profile information (e.g., display name, username, profile photo).</li>
+            <li>Account statistics (e.g., follower count, following count, likes count, video count).</li>
+            <li>Public video information (e.g., video titles, thumbnails, creation time, duration).</li>
+            <li>Video performance metrics (e.g., views, likes, comments, shares).</li>
+        </ul>
+        <p>
+            YOUR_APP_NAME does not collect your login password for TikTok or YouTube.
+            Login is processed directly on the official platforms.
+        </p>
+    </section>
+
+    <section>
+        <h2>3. How We Use Your Information</h2>
+        <p>
+            We use the information obtained via official APIs solely to:
+        </p>
+        <ul>
+            <li>Display profile and channel statistics inside the app.</li>
+            <li>Display analytics and performance metrics for your videos.</li>
+            <li>Help you compare and manage multiple accounts more easily.</li>
+        </ul>
+        <p>
+            We do not sell, rent, or trade your information to third parties.
+        </p>
+    </section>
+
+    <section>
+        <h2>4. Data Storage and Local Processing</h2>
+        <p>
+            YOUR_APP_NAME is designed as a local-first desktop application:
+        </p>
+        <ul>
+            <li>Access tokens and account data are stored locally on your device.</li>
+            <li>We do not operate a remote backend server that stores your data.</li>
+            <li>All analytics processing happens inside the app on your machine.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. User Control and Revoking Access</h2>
+        <p>
+            You are in control of the permissions granted to YOUR_APP_NAME:
+        </p>
+        <ul>
+            <li>
+                You can remove accounts from the app at any time, which will delete
+                locally stored tokens and data for that account.
+            </li>
+            <li>
+                You may revoke API access from your TikTok and/or Google (YouTube)
+                account settings, which invalidates the tokens held by the app.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Security</h2>
+        <p>
+            We apply standard security practices to protect the data stored locally
+            on your device, but you are also responsible for the security of your
+            computer, operating system, and local files.
+        </p>
+    </section>
+
+    <section>
+        <h2>7. Children’s Privacy</h2>
+        <p>
+            YOUR_APP_NAME is intended for use by individuals who are legally allowed
+            to use TikTok and YouTube under their respective Terms of Service.
+        </p>
+    </section>
+
+    <section>
+        <h2>8. Changes to This Privacy Policy</h2>
+        <p>
+            We may update this Privacy Policy from time to time. Any changes will be
+            reflected on this page with an updated “Last updated” date.
+        </p>
+    </section>
+
+    <section>
+        <h2>9. Contact Us</h2>
+        <p>
+            If you have any questions about this Privacy Policy or how YOUR_APP_NAME
+            handles data, you can contact us at:
+        </p>
+        <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+</main>
+
+<footer>
+    <div class="inner">
+        <span>© <span id="year"></span> YOUR_APP_NAME. All rights reserved.</span>
+        <span><a href="index.html">Back to Home</a></span>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOUR_APP_NAME – Social Media Analytics Desktop App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="YOUR_APP_NAME is a desktop app to manage and analyze your TikTok and YouTube channels in one place.">
+    <style>
+        :root {
+            --bg: #050816;
+            --card: #111827;
+            --accent: #3b82f6;
+            --accent-soft: #1f2937;
+            --text-main: #f9fafb;
+            --text-soft: #9ca3af;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.08em;
+        }
+        nav a {
+            margin-left: 18px;
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        .hero {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 32px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 32px;
+        }
+        .hero-main h1 {
+            font-size: clamp(2.3rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero-main p {
+            font-size: 15px;
+            color: var(--text-soft);
+            max-width: 520px;
+            margin-bottom: 24px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(59,130,246,0.15);
+            color: #bfdbfe;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: 10px;
+        }
+        .badge span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #22c55e;
+            margin-right: 6px;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .btn {
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-soft);
+            color: var(--text-soft);
+        }
+        .hero-note {
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top left, #1f2937 0, #020617 65%);
+            border-radius: 18px;
+            padding: 16px 16px 18px;
+            border: 1px solid rgba(148,163,184,0.25);
+            box-shadow: 0 22px 40px rgba(15,23,42,0.9);
+        }
+        .hero-card h2 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .hero-card p {
+            font-size: 12px;
+            color: var(--text-soft);
+            margin-bottom: 14px;
+        }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .pill {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(55,65,81,0.9);
+            color: #e5e7eb;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .stat-box {
+            background: rgba(15,23,42,0.92);
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid rgba(55,65,81,0.9);
+        }
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-bottom: 2px;
+        }
+        .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .stat-sub {
+            font-size: 11px;
+            color: #4ade80;
+        }
+        .small-note {
+            font-size: 10px;
+            color: var(--text-soft);
+            margin-top: 6px;
+        }
+
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px 32px;
+        }
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 16px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+        }
+        .feature-card {
+            background: rgba(15,23,42,0.9);
+            border-radius: 14px;
+            padding: 12px 14px;
+            border: 1px solid rgba(31,41,55,0.9);
+        }
+        .feature-card h3 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        footer {
+            border-top: 1px solid #111827;
+            margin-top: auto;
+            padding: 12px 20px 18px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+        footer .inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        footer ul {
+            list-style: none;
+            display: flex;
+            gap: 12px;
+        }
+        footer a { color: var(--text-soft); }
+        footer a:hover { color: var(--text-main); }
+
+        @media (max-width: 720px) {
+            .hero {
+                grid-template-columns: minmax(0,1fr);
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            nav {
+                margin-left: -4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">YOUR_APP_NAME</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-main">
+            <div class="badge"><span></span> Early access desktop app</div>
+            <h1>Multi-account analytics for TikTok & YouTube in one simple desktop app.</h1>
+            <p>
+                YOUR_APP_NAME helps creators and teams monitor profile stats, video performance,
+                and multi-channel growth using official TikTok and YouTube APIs. All data
+                stays on your device.
+            </p>
+            <div class="actions">
+                <button class="btn btn-primary" type="button">
+                    Desktop only • OAuth login
+                </button>
+                <a href="privacy.html" class="btn btn-outline">View Privacy Policy</a>
+            </div>
+            <p class="hero-note">
+                YOUR_APP_NAME does not post content or perform automated actions. It only
+                reads analytics data that you explicitly allow via TikTok and YouTube OAuth.
+            </p>
+        </div>
+
+        <aside class="hero-card">
+            <h2>What the app does</h2>
+            <p>
+                YOUR_APP_NAME connects to your social accounts using official OAuth flows,
+                then visualizes:
+            </p>
+            <div class="pill-row">
+                <div class="pill">TikTok profile stats</div>
+                <div class="pill">TikTok video metrics</div>
+                <div class="pill">YouTube channel stats</div>
+                <div class="pill">Multi-account view</div>
+            </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-label">TikTok metrics</div>
+                    <div class="stat-value">Followers, Likes, Views</div>
+                    <div class="stat-sub">Per account, per video</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">YouTube metrics</div>
+                    <div class="stat-value">Subs, Views, Engagement</div>
+                    <div class="stat-sub">Shorts & long-form</div>
+                </div>
+            </div>
+            <p class="small-note">
+                All numbers shown in the app come directly from the TikTok and YouTube APIs,
+                based on your granted permissions.
+            </p>
+        </aside>
+    </section>
+
+    <section class="section">
+        <h2>Key Features</h2>
+        <p>
+            YOUR_APP_NAME is designed for creators, editors, and small teams that manage
+            more than one channel or account.
+        </p>
+        <div class="features">
+            <article class="feature-card">
+                <h3>Multi-account dashboard</h3>
+                <p>
+                    Connect multiple TikTok accounts and YouTube channels, then switch
+                    between them in a single desktop interface.
+                </p>
+            </article>
+            <article class="feature-card">
+                <h3>Video analytics</h3>
+                <p>
+                    See likes, comments, shares, views, and other stats per video.
+                    Filter and sort to find best-performing content.
+                </p>
+            </article>
+            <article class="feature-card">
+                <h3>Secure OAuth login</h3>
+                <p>
+                    Login is handled by TikTok and Google (YouTube). YOUR_APP_NAME never
+                    asks for your password and only receives an access token.
+                </p>
+            </article>
+            <article class="feature-card">
+                <h3>Local-first data</h3>
+                <p>
+                    Tokens and analytics are stored locally on your device. We do not run
+                    a cloud backend or sell your data.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Contact</h2>
+        <p>
+            For any questions about this app, our privacy practices, or API usage,
+            you can reach us at:
+        </p>
+        <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+</main>
+
+<footer>
+    <div class="inner">
+        <span>© <span id="year"></span> YOUR_APP_NAME. All rights reserved.</span>
+        <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
